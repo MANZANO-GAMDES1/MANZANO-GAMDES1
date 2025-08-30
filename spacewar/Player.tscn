@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhvwdifpskwa1"]
+
+[ext_resource type="Texture2D" uid="uid://cb8vaufo4x23h" path="res://graphics/PNG_Parts&Spriter_Animation/Ship6/Ship6.png" id="1_xhfnw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhfnw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xhfnw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
+radius = 18.0
+height = 58.28
+
+[node name="Player" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xhfnw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xhfnw")
