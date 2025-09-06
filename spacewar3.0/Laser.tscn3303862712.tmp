@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b18orq8m0q41j"]
+
+[ext_resource type="Texture2D" uid="uid://bxr6miwtrixxq" path="res://graphics/PNG_Parts&Spriter_Animation/Shots/Shot6/shot6_1.png" id="1_c4r1g"]
+[ext_resource type="Script" uid="uid://cslt4vuxox66c" path="res://laser.gd" id="1_y3ayh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3ayh"]
+radius = 3.8113
+height = 23.8911
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("1_y3ayh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -22)
+rotation = -1.5708
+texture = ExtResource("1_c4r1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.31189, 1.9254)
+shape = SubResource("CapsuleShape2D_y3ayh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

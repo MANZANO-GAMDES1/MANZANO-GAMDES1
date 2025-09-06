@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b13tqbw4ttwoc"]
+
+[ext_resource type="Script" uid="uid://g3nha6un8m2h" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bp5nu8xqhb4h3" path="res://graphics/PNG_Parts&Spriter_Animation/Ship6/Ship6.png" id="1_xhfnw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
+radius = 38.71
+height = 115.7
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kne1u"]
+radius = 38.71
+height = 115.7
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 2
+script = ExtResource("1_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kpjcp")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_kne1u")
